@@ -21,6 +21,7 @@ pipeline {
       steps {
         container('go') {
           dir('/home/jenkins/go/src/github.com/daemin9527/test14') {
+            sh "sleep 111111"
             checkout scm
             sh "make linux"
             sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
